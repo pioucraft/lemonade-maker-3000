@@ -3,18 +3,18 @@ let app = express()
 const port = 3000
 
 const mongoose = require("mongoose")
-const User = require("./User")
+const Country = require("./Country")
+mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 const async = require("async")
-const crypto = require("crypto")
 
-
-const registerQueue = async.queue(async (task) => {
-    task.req.params.password = crypto.createHash
+const addCookiesQueue = async.queue(async (task) => {
+    await Country.insertOne({id: "test1"})
+    await Country.findOneAndUpdate({id: "test"}, {lemonade: 1})
 })
 
-app.all("/api/register/:username/:pasword", (req, res) => {
-    registerQueue.push({req, res})
+app.all("/api/add-cookies/:numberOfCookies", (req, res) => {
+    addCookiesQueue.push({req, res})
 })
 
 
