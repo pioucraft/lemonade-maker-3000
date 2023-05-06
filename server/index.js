@@ -9,16 +9,19 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
 const async = require("async")
 
 const clickQueue = async.queue(async (task) => {
-    if((Number(task.req.params.clicks) <= 0) == false) {
+    if((Number(task.req.params.clicks) <= 0)) {
+        task.res.send("number can't be negative")
+    }
+    else if(Number(task.req.params.clicks) > 800) {
+        task.res.send("error, too much clicks")
+    }
+    else{
         let ip = getIp(task.req)
         let country = getCountry(ip)
         let lemonade = (await Country.findOne({id: country})).lemonade
         lemonade += Number(task.req.params.clicks)
         await Country.findOneAndUpdate({id: country, lemonade: lemonade})
         task.res.send(String(lemonade))
-    }
-    else{
-        task.res.send("number can't be negative")
     }
 }, 1)
 
