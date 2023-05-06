@@ -13,7 +13,7 @@ const clickQueue = async.queue(async (task) => {
         task.res.send("number can't be negative")
     }
     else if(Number(task.req.params.clicks) > 800) {
-        task.res.send("error, too much clicks")
+        task.res.send("error, too many clicks")
     }
     else{
         let ip = getIp(task.req)
