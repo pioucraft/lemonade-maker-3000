@@ -24,7 +24,6 @@ function blockIp(req, res, next) {
 
 function rateLimit(req, res, next) {
     let ip = getIp(req)
-    console.log(ips)
     if(ips[ip] == undefined) {
         ips[ip] = (Date.now()/1000)
         next()
