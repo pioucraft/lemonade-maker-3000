@@ -11,6 +11,17 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 const async = require("async")
 
+function blockIp(req, res, next) {
+    if(getIp(req) == "127.0.0.1"){
+        next()
+    }
+    else {
+        res.send("what are you doing here ????")
+    }
+}
+
+app.use(blockIp)
+
 const clickQueue = async.queue(async (task) => {
     if((parseInt(task.req.params.clicks) < 0)) {
         task.res.send("number can't be negative")
