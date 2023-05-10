@@ -51,9 +51,9 @@ const clickQueue = async.queue(async (task) => {
     else{
         let ip = getIp(task.req)
         let country = getCountry(ip)
-        let lemonade = (await Country.findOne({id: country})).lemonade
-        lemonade += parseInt(task.req.params.clicks)
-        await Country.findOneAndUpdate({id: country, lemonade: lemonade})
+        let lemonade = BigInt((await Country.findOne({id: country})).lemonade)
+        lemonade += BigInt(task.req.params.clicks)
+        await Country.findOneAndUpdate({id: country, lemonade: String(lemonade)})
         task.res.send({"error": false, "response": String(lemonade)})
     }
 }, 1)
