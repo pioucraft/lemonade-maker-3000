@@ -45,7 +45,7 @@ const clickQueue = async.queue(async (task) => {
     if((parseInt(task.req.params.clicks) < 0)) {
         task.res.send({"error": true, "response": "number can't be negative", "code": -2})
     }
-    else if(parseInt(task.req.params.clicks) > 800) {
+    else if(parseInt(task.req.params.clicks) > 500) {
         task.res.send({"error": true, "response": "you can't make that much lemonade in 10 seconds", "code": -1})
     }
     else{
