@@ -51,11 +51,8 @@ function clickFunction() {
 function saveFunction() {
     setCookie("lemonade", lemonade, 999999)
     setCookie("buildings", buildings, 999999)
-    if(newLemonade < 750) {
+    if(newLemonade < 499) {
         fetch("http://localhost:3000/api/add-lemonade/"+newLemonade)
-    }
-    else {
-        fetch("http://localhost:3000/api/add-lemonade/"+750)
     }
     
     newLemonade = 0
