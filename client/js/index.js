@@ -62,21 +62,24 @@ function saveFunction() {
 }
 
 function tickFunction() {
-    
+}
+
+function longTickFunction() {
+    lemonade += calculateLpsFunction()
+    document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
 }
 
 function calculateLpsFunction() {
-
+    return mixerLps()
 }
 
 
-//priceCalculation functions
+//mixer functions
 function priceMixer() {
     let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "a")
-    return 15n+15n*BigInt(parseInt(0.15*amountOwned))
+    return 15n+BigInt(parseInt(15*0.15*amountOwned))
 }
 
-//buy function
 function buyMixer() {
     if(priceMixer() <= lemonade) {
         lemonade -= priceMixer()
@@ -90,17 +93,28 @@ function buyMixer() {
     }
 }
 
+function mixerLps() {
+    let numberOfMixer = howManyOccurencesOfACharacterInAString(buildings, "a")
+    return BigInt(numberOfMixer*1)
+}
+
+
+
 const lemonadeMaker = {
     click: clickFunction,
     save: saveFunction,
     tick: tickFunction,
-    calculateLps: calculateLpsFunction,
+    longTick: longTickFunction,
+    calculateLps: {
+        general: calculateLpsFunction,
+        mixer: mixerLps
+    },
     buy: {
         mixer: buyMixer
     },
     calculatePrice: {
         mixer: priceMixer
-    }
+    },
 }
 
 //DOM
@@ -114,6 +128,7 @@ window.onload = function() {
         lemonadeMaker.tick()
     }, 100)
     loop2 = setInterval(() => {
+        lemonadeMaker.longTick()
         lemonadeMaker.save()
     }, 10000)
 }
