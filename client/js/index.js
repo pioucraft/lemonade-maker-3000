@@ -62,19 +62,19 @@ function tickFunction() {
 }
 
 function longTickFunction() {
-    lemonade += calculateLpsFunction()
+    lemonade += mixerLps()+plantationLps()+hydraulicPressLps()
     document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
 }
 
 function calculateLpsFunction() {
-    return mixerLps()
+    return 0
 }
 
 
 //mixer functions
 function priceMixer() {
     let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "a")
-    return 15n+BigInt(parseInt(15*0.15*amountOwned))
+    return 7n+BigInt(parseInt(7*1.15**amountOwned))
 }
 
 function buyMixer() {
@@ -82,7 +82,8 @@ function buyMixer() {
         lemonade -= priceMixer()
         buildings += "a"
         document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
-        document.getElementById("shop-mixer-price").innerHTML = formatter.format(lemonadeMaker.calculatePrice.mixer())
+        document.getElementById("shop-mixer-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.mixer())
+        document.getElementById("shop-mixer-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "a")
         alert("you bought a mixer")
     }
     else{
@@ -95,6 +96,56 @@ function mixerLps() {
     return BigInt(numberOfMixer*1)
 }
 
+//plantation functions
+function pricePlantation() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "b")
+    return 50n+BigInt(parseInt(50*1.15**amountOwned))
+}
+
+function buyPlantation() {
+    if(pricePlantation() <= lemonade) {
+        lemonade -= pricePlantation()
+        buildings += "b"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-plantation-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.plantation())
+        document.getElementById("shop-plantation-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "b")
+        alert("you bought a plantation")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function plantationLps() {
+    let numberOfPlantation = howManyOccurencesOfACharacterInAString(buildings, "b")
+    return BigInt(numberOfPlantation*5)
+}
+
+//hydraulic press functions
+function priceHydraulicPress() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "c")
+    return 500n+BigInt(parseInt(500*1.15**amountOwned))
+}
+
+function buyHydraulicPress() {
+    if(priceHydraulicPress() <= lemonade) {
+        lemonade -= priceHydraulicPress()
+        buildings += "c"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-hydraulicPress-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.hydraulicPress())
+        document.getElementById("shop-hydraulicPress-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "c")
+        alert("you bought a hydraulic press")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function hydraulicPressLps() {
+    let numberOfHydraulicPress = howManyOccurencesOfACharacterInAString(buildings, "c")
+    return BigInt(numberOfHydraulicPress*25)
+}
+
 
 
 const lemonadeMaker = {
@@ -104,19 +155,32 @@ const lemonadeMaker = {
     longTick: longTickFunction,
     calculateLps: {
         general: calculateLpsFunction,
-        mixer: mixerLps
+        mixer: mixerLps,
+        plantation: plantationLps,
+        hydraulicPress: hydraulicPressLps
     },
     buy: {
-        mixer: buyMixer
+        mixer: buyMixer,
+        plantation: buyPlantation,
+        hydraulicPress: buyHydraulicPress
     },
     calculatePrice: {
-        mixer: priceMixer
+        mixer: priceMixer,
+        plantation: pricePlantation,
+        hydraulicPress: priceHydraulicPress
     },
 }
 
 //DOM
 document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
-document.getElementById("shop-mixer-price").innerHTML = formatter.format(lemonadeMaker.calculatePrice.mixer())
+document.getElementById("shop-mixer-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.mixer())
+document.getElementById("shop-mixer-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "a")
+
+document.getElementById("shop-plantation-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.plantation())
+document.getElementById("shop-plantation-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "b")
+
+document.getElementById("shop-hydraulicPress-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.hydraulicPress())
+document.getElementById("shop-hydraulicPress-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "c")
 
 
 
