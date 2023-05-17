@@ -53,7 +53,7 @@ function saveFunction() {
     setCookie("lemonade", lemonade, 999999)
     setCookie("buildings", buildings, 999999)
     if(newLemonade < 499) {
-        fetch("https://gougoule.ch/otherapis/lemonadeMaker/api/add-lemonade"+newLemonade)
+        fetch("https://gougoule.ch/otherapis/lemonadeMaker/api/add-lemonade/"+newLemonade)
     }
     
     newLemonade = 0
