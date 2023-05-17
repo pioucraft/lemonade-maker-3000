@@ -14,7 +14,7 @@ const geoip = require('geoip-country');
 var ips = {}
 
 function blockIp(req, res, next) {
-    if(getIp(req) == "127.0.0.1"){
+    if(req.ip == "::ffff:127.0.0.1"){
         next()
     }
     else {
