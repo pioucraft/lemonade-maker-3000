@@ -59,6 +59,8 @@ function saveFunction() {
 }
 
 function tickFunction() {
+    lemonade += calculateLpsFunction()
+    document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
 }
 
 function longTickFunction() {
@@ -67,7 +69,7 @@ function longTickFunction() {
 }
 
 function calculateLpsFunction() {
-    return 0
+    return factoryLps()+nuclearReactorLps()+limonadierLps()+weatherControllerLps()+lemondasHandLps()+socialMediaLps()
 }
 
 
@@ -146,28 +148,211 @@ function hydraulicPressLps() {
     return BigInt(numberOfHydraulicPress*25)
 }
 
+//factory functions
+function priceFactory() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "d")
+    return 5000n+BigInt(parseInt(5000*1.15**amountOwned))
+}
+
+function buyFactory() {
+    if(priceFactory() <= lemonade) {
+        lemonade -= priceFactory()
+        buildings += "d"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-factory-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.factory())
+        document.getElementById("shop-factory-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "d")
+        alert("you bought a factory")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function factoryLps() {
+    let numberOfFactory = howManyOccurencesOfACharacterInAString(buildings, "d")
+    return BigInt(numberOfFactory*1)
+}
+
+//nuclearReactor functions
+function priceNuclearReactor() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "e")
+    return 50000n+BigInt(parseInt(50000*1.15**amountOwned))
+}
+
+function buyNuclearReactor() {
+    if(priceNuclearReactor() <= lemonade) {
+        lemonade -= priceNuclearReactor()
+        buildings += "e"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-nuclearReactor-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.nuclearReactor())
+        document.getElementById("shop-nuclearReactor-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "e")
+        alert("you bought a nuclearReactor")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function nuclearReactorLps() {
+    let numberOfNuclearReactor = howManyOccurencesOfACharacterInAString(buildings, "e")
+    return BigInt(numberOfNuclearReactor*5)
+}
+
+//limonadier functions
+function priceLimonadier() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "f")
+    return 500000n+BigInt(parseInt(500000*1.15**amountOwned))
+}
+
+function buyLimonadier() {
+    if(priceLimonadier() <= lemonade) {
+        lemonade -= priceLimonadier()
+        buildings += "f"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-limonadier-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.limonadier())
+        document.getElementById("shop-limonadier-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "f")
+        alert("you bought a lemonade tree")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function limonadierLps() {
+    let numberOfLimonadier = howManyOccurencesOfACharacterInAString(buildings, "f")
+    return BigInt(numberOfLimonadier*25)
+}
+
+//weatherController functions
+function priceWeatherController() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "g")
+    return 5000000n+BigInt(parseInt(5000000*1.15**amountOwned))
+}
+
+function buyWeatherController() {
+    if(priceWeatherController() <= lemonade) {
+        lemonade -= priceWeatherController()
+        buildings += "f"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-weatherController-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.weatherController())
+        document.getElementById("shop-weatherController-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "g")
+        alert("you bought a lemonade tree")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function weatherControllerLps() {
+    let numberOfweatherController = howManyOccurencesOfACharacterInAString(buildings, "g")
+    return BigInt(numberOfweatherController*125)
+}
+
+//lemondasHand functions
+function priceLemondasHand() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "h")
+    return 50000000n+BigInt(parseInt(50000000*1.15**amountOwned))
+}
+
+function buyLemondasHand() {
+    if(priceLemondasHand() <= lemonade) {
+        lemonade -= priceLemondasHand()
+        buildings += "f"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-lemondasHand-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.lemondasHand())
+        document.getElementById("shop-lemondasHand-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "h")
+        alert("you bought a lemonade tree")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function lemondasHandLps() {
+    let numberOflemondasHand = howManyOccurencesOfACharacterInAString(buildings, "h")
+    return BigInt(numberOflemondasHand*625)
+}
+
+//socialMedia functions
+function priceSocialMedia() {
+    let amountOwned = howManyOccurencesOfACharacterInAString(buildings, "i")
+    return 500000000n+BigInt(parseInt(500000000*1.15**amountOwned))
+}
+
+function buySocialMedia() {
+    if(priceSocialMedia() <= lemonade) {
+        lemonade -= priceSocialMedia()
+        buildings += "f"
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("shop-socialMedia-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.socialMedia())
+        document.getElementById("shop-socialMedia-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "i")
+        alert("you bought a lemonade tree")
+    }
+    else{
+        alert("you don't have enough money")
+    }
+}
+
+function socialMediaLps() {
+    let numberOfsocialMedia = howManyOccurencesOfACharacterInAString(buildings, "i")
+    return BigInt(numberOfsocialMedia*3130)
+}
 
 
+//others
+function daFinalFunction() {
+    if(lemonade >= 10000000000n) {
+        window.alert("stop playing this game and do something of your life")
+        window.alert("and i'm going to kick you from this page so you can do something useful")
+        document.write("LEAVE THIS PAGE !!!!!!!!")
+        setTimeout(() => {
+            window.close()
+        },2000)
+    }
+    else {
+        window.alert("you don't have enough money")
+    }
+    console.log(formatter.format(10000000000))
+}
 const lemonadeMaker = {
     click: clickFunction,
     save: saveFunction,
     tick: tickFunction,
     longTick: longTickFunction,
+    daFinalFunction: daFinalFunction,
     calculateLps: {
         general: calculateLpsFunction,
         mixer: mixerLps,
         plantation: plantationLps,
-        hydraulicPress: hydraulicPressLps
+        hydraulicPress: hydraulicPressLps,
+        factory: factoryLps,
+        nuclearReactor: nuclearReactorLps,
+        limonadier: limonadierLps,
+        weatherController: weatherControllerLps,
+        lemondasHand: lemondasHandLps,
+        socialMedia: socialMediaLps
     },
     buy: {
         mixer: buyMixer,
         plantation: buyPlantation,
-        hydraulicPress: buyHydraulicPress
+        hydraulicPress: buyHydraulicPress,
+        factory: buyFactory,
+        nuclearReactor: buyNuclearReactor,
+        limonadier: buyLimonadier,
+        weatherController: buyWeatherController,
+        lemondasHand: buyLemondasHand,
+        socialMedia: buySocialMedia
     },
     calculatePrice: {
         mixer: priceMixer,
         plantation: pricePlantation,
-        hydraulicPress: priceHydraulicPress
+        hydraulicPress: priceHydraulicPress,
+        factory: priceFactory,
+        nuclearReactor: priceNuclearReactor,
+        limonadier: priceLimonadier,
+        weatherController: priceWeatherController,
+        lemondasHand: priceLemondasHand,
+        socialMedia: priceSocialMedia
     },
 }
 
@@ -182,7 +367,23 @@ document.getElementById("shop-plantation-numberOwned").innerHTML = "owned: " + h
 document.getElementById("shop-hydraulicPress-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.hydraulicPress())
 document.getElementById("shop-hydraulicPress-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "c")
 
+document.getElementById("shop-factory-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.factory())
+document.getElementById("shop-factory-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "d")
 
+document.getElementById("shop-nuclearReactor-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.nuclearReactor())
+document.getElementById("shop-nuclearReactor-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "e")
+
+document.getElementById("shop-limonadier-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.limonadier())
+document.getElementById("shop-limonadier-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "f")
+
+document.getElementById("shop-weatherController-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.weatherController())
+document.getElementById("shop-weatherController-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "g")
+
+document.getElementById("shop-lemondasHand-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.lemondasHand())
+document.getElementById("shop-lemondasHand-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "h")
+
+document.getElementById("shop-socialMedia-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.socialMedia())
+document.getElementById("shop-socialMedia-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "i")
 
 window.onload = function() {
     loop = setInterval(() => {
