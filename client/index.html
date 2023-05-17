@@ -5,16 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super-lemonade-maker-3000</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <div class="market">
-        <h2 id="lemonade">0 liter of lemonade</h2>
+    <div class="daThing">
+        <div class="market">
+            <h2 id="lemonade">0 liter of lemonade</h2>
+        </div>
+        <div class="lemonadeClick">
+            <button onclick="lemonadeMaker.click()" id="lemonadeClick">
+                <img id="lemonOrLemonade" src="images/lemon.png" alt="a lemon" width="200">
+            </button>
+        </div>
     </div>
-    <div class="lemonadeClick">
-        <button onclick="lemonadeMaker.click()">
-            <img id="lemonOrLemonade" src="images/lemon.png" alt="a lemon" width="200">
-        </button>
-    </div>
+    
     <div class="shop">
         <div class="shop-mixer">
             <button class="shop-mixer-button" onclick="lemonadeMaker.buy.mixer()">
@@ -77,7 +81,7 @@
                 <h2>lemondas hand</h2>
                 <h3 id="shop-lemondasHand-price">price: </h3>
                 <h4 id="shop-lemondasHand-numberOwned">owned: </h4>
-                <p id="shop-lemondasHand-description">It's like midas hand but instead of transforming everything into gold it'll transform everything into lemonade.</p>
+                <p id="shop-lemondasHand-description">Midas hand but with lemonade.</p>
             </button>
         </div>
         <div class="shop-socialMedia">
