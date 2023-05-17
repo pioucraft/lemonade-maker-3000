@@ -2,11 +2,11 @@ const express = require("express")
 const cors = require("cors")
 let app = express()
 app.use(cors())
-const port = 3000
+const port = 3001
 
 const mongoose = require("mongoose")
 const Country = require("./Country")
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+mongoose.connect('mongodb://127.0.0.1:27017/lemonadeMaker');
 
 const async = require("async")
 const geoip = require('geoip-country');
