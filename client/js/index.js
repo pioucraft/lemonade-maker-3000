@@ -36,7 +36,7 @@ function clickFunction() {
             document.getElementById("lemonOrLemonade").alt = "a lemonade"
             lemonade++
             document.getElementById
-            document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+            document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         }
     }
     else {
@@ -60,12 +60,12 @@ function saveFunction() {
 
 function tickFunction() {
     lemonade += calculateLpsFunction()
-    document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+    document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
 }
 
 function longTickFunction() {
     lemonade += mixerLps()+plantationLps()+hydraulicPressLps()
-    document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+    document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
 }
 
 function calculateLpsFunction() {
@@ -83,7 +83,7 @@ function buyMixer() {
     if(priceMixer() <= lemonade) {
         lemonade -= priceMixer()
         buildings += "a"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-mixer-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.mixer())
         document.getElementById("shop-mixer-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "a")
         alert("you bought a mixer")
@@ -108,7 +108,7 @@ function buyPlantation() {
     if(pricePlantation() <= lemonade) {
         lemonade -= pricePlantation()
         buildings += "b"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-plantation-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.plantation())
         document.getElementById("shop-plantation-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "b")
         alert("you bought a plantation")
@@ -133,7 +133,7 @@ function buyHydraulicPress() {
     if(priceHydraulicPress() <= lemonade) {
         lemonade -= priceHydraulicPress()
         buildings += "c"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-hydraulicPress-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.hydraulicPress())
         document.getElementById("shop-hydraulicPress-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "c")
         alert("you bought a hydraulic press")
@@ -158,7 +158,7 @@ function buyFactory() {
     if(priceFactory() <= lemonade) {
         lemonade -= priceFactory()
         buildings += "d"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-factory-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.factory())
         document.getElementById("shop-factory-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "d")
         alert("you bought a factory")
@@ -183,7 +183,7 @@ function buyNuclearReactor() {
     if(priceNuclearReactor() <= lemonade) {
         lemonade -= priceNuclearReactor()
         buildings += "e"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-nuclearReactor-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.nuclearReactor())
         document.getElementById("shop-nuclearReactor-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "e")
         alert("you bought a nuclearReactor")
@@ -208,7 +208,7 @@ function buyLimonadier() {
     if(priceLimonadier() <= lemonade) {
         lemonade -= priceLimonadier()
         buildings += "f"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-limonadier-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.limonadier())
         document.getElementById("shop-limonadier-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "f")
         alert("you bought a lemonade tree")
@@ -233,7 +233,7 @@ function buyWeatherController() {
     if(priceWeatherController() <= lemonade) {
         lemonade -= priceWeatherController()
         buildings += "f"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-weatherController-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.weatherController())
         document.getElementById("shop-weatherController-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "g")
         alert("you bought a lemonade tree")
@@ -258,7 +258,7 @@ function buyLemondasHand() {
     if(priceLemondasHand() <= lemonade) {
         lemonade -= priceLemondasHand()
         buildings += "f"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-lemondasHand-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.lemondasHand())
         document.getElementById("shop-lemondasHand-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "h")
         alert("you bought a lemonade tree")
@@ -283,7 +283,7 @@ function buySocialMedia() {
     if(priceSocialMedia() <= lemonade) {
         lemonade -= priceSocialMedia()
         buildings += "f"
-        document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+        document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-socialMedia-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.socialMedia())
         document.getElementById("shop-socialMedia-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "i")
         alert("you bought a lemonade tree")
@@ -357,7 +357,7 @@ const lemonadeMaker = {
 }
 
 //DOM
-document.getElementById("lemonade").innerHTML = formatter.format(lemonade)
+document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
 document.getElementById("shop-mixer-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.mixer())
 document.getElementById("shop-mixer-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "a")
 
