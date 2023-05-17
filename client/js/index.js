@@ -6,6 +6,7 @@ var newLemonade = 0;
 const formatter = Intl.NumberFormat("en", {notation: "compact"})
 if(getCookie("lemonade") == null) {
     //function newUser()
+    window.alert("welcome to super lemonade maker 3000, by using this websites you agree to cookies (and please don't block the popup windows, it'll be important for the game)")
     var lemonade = 0n
     var buildings = ""
     setCookie("lemonade", 0n, 999999)
@@ -52,7 +53,7 @@ function saveFunction() {
     setCookie("lemonade", lemonade, 999999)
     setCookie("buildings", buildings, 999999)
     if(newLemonade < 499) {
-        fetch("http://localhost:3000/api/add-lemonade/"+newLemonade)
+        fetch("https://gougoule.ch/otherapis/lemonadeMaker/api/add-lemonade"+newLemonade)
     }
     
     newLemonade = 0

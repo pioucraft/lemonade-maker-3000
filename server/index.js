@@ -9,7 +9,7 @@ const Country = require("./Country")
 mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 const async = require("async")
-
+const geoip = require('geoip-country');
 
 var ips = {}
 
@@ -68,9 +68,10 @@ app.listen(port, () => {
 })
 
 function getIp(req) {
-   return req.ip.replace("::ffff:", "") 
+   return req["headers"]["x-forwarded-for"]
 }
 
 function getCountry(ip) {
-    return "ch"
+    let geo = geoip.lookup(ip);
+    return geo.country.toLowerCase()
 }
