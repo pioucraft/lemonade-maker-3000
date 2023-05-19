@@ -258,7 +258,7 @@ function priceLemondasHand() {
 function buyLemondasHand() {
     if(priceLemondasHand() <= lemonade) {
         lemonade -= priceLemondasHand()
-        buildings += "f"
+        buildings += "h"
         document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-lemondasHand-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.lemondasHand())
         document.getElementById("shop-lemondasHand-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "h")
@@ -283,7 +283,7 @@ function priceSocialMedia() {
 function buySocialMedia() {
     if(priceSocialMedia() <= lemonade) {
         lemonade -= priceSocialMedia()
-        buildings += "f"
+        buildings += "i"
         document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-socialMedia-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.socialMedia())
         document.getElementById("shop-socialMedia-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "i")
