@@ -233,11 +233,11 @@ function priceWeatherController() {
 function buyWeatherController() {
     if(priceWeatherController() <= lemonade) {
         lemonade -= priceWeatherController()
-        buildings += "f"
+        buildings += "g"
         document.getElementById("lemonade").innerHTML = formatter.format(lemonade) + " litters of lemonade"
         document.getElementById("shop-weatherController-price").innerHTML = "price: " + formatter.format(lemonadeMaker.calculatePrice.weatherController())
         document.getElementById("shop-weatherController-numberOwned").innerHTML = "owned: " + howManyOccurencesOfACharacterInAString(buildings, "g")
-        alert("you bought a lemonade tree")
+        alert("you bought a weather controller")
     }
     else{
         alert("you don't have enough money")
